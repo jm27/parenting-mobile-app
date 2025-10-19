@@ -6,6 +6,7 @@ from sqlalchemy.orm import relationship
 
 Base = declarative_base()
 
+
 class User(Base):
     __tablename__ = "users"
 
@@ -13,6 +14,7 @@ class User(Base):
     email = Column(String, unique=True, index=True)
     username = Column(String, unique=True, index=True)
     created_at = Column(DateTime, default=datetime.utcnow)
+
 
 class Conversation(Base):
     __tablename__ = "conversations"
@@ -23,6 +25,7 @@ class Conversation(Base):
     created_at = Column(DateTime, default=datetime.utcnow)
 
     user = relationship("User")
+
 
 class Message(Base):
     __tablename__ = "messages"
